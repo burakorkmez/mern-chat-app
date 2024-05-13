@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "chat-app-yt": "file:..",
+    "mern-chat-app": "file:..",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
