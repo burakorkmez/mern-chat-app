@@ -16,10 +16,17 @@ const SearchInput = () => {
 			return toast.error("Search term must be at least 3 characters long");
 		}
 
-		const conversation = conversations.find((c) => c.fullName.toLowerCase().includes(search.toLowerCase()));
-
-		if (conversation) {
-			setSelectedConversation(conversation);
+		const conversation = conversations.filter((c) => 
+			c.interest1.toLowerCase().includes(search.toLowerCase()) ||
+			c.interest2.toLowerCase().includes(search.toLowerCase()) ||
+			c.fullName.toLowerCase().includes(search.toLowerCase())
+		);
+	
+		// const conversation = conversations.find((c) => c.interest1.toLowerCase().includes(search.toLowerCase()));
+		// const conversation2 = conversations.find((c) => c.interest2.toLowerCase().includes(search.toLowerCase()));
+		// const conversation3 = conversations.find((c) => c.fullName.toLowerCase().includes(search.toLowerCase()));
+		if (conversation.length>0) {
+			setSelectedConversation(conversation[0]);
 			setSearch("");
 		} else toast.error("No such user found!");
 	};

@@ -16,6 +16,16 @@ const userSchema = new mongoose.Schema(
 			required: true,
 			minlength: 6,
 		},
+		interest1: {
+			type: String,
+			required: true,
+			minlength: 1,
+		},
+		interest2: {
+			type: String,
+			required: true,
+			minlength: 1,
+		},
 		gender: {
 			type: String,
 			required: true,

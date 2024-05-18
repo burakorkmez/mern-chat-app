@@ -14,6 +14,7 @@ const useGetConversations = () => {
 				if (data.error) {
 					throw new Error(data.error);
 				}
+				// console.log(data)
 				setConversations(data);
 			} catch (error) {
 				toast.error(error.message);

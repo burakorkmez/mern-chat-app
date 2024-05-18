@@ -4,8 +4,8 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 
 export const signup = async (req, res) => {
 	try {
-		const { fullName, username, password, confirmPassword, gender } = req.body;
-
+		const { fullName, username, password, confirmPassword, gender, interest1, interest2 } = req.body;
+		console.log(req.body)
 		if (password !== confirmPassword) {
 			return res.status(400).json({ error: "Passwords don't match" });
 		}
@@ -21,6 +21,7 @@ export const signup = async (req, res) => {
 		const hashedPassword = await bcrypt.hash(password, salt);
 
 		// https://avatar-placeholder.iran.liara.run/
+		console.log(interest1);
 
 		const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
 		const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
@@ -28,6 +29,8 @@ export const signup = async (req, res) => {
 		const newUser = new User({
 			fullName,
 			username,
+			interest1,
+			interest2,
 			password: hashedPassword,
 			gender,
 			profilePic: gender === "male" ? boyProfilePic : girlProfilePic,

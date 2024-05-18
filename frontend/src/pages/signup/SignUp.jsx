@@ -10,6 +10,8 @@ const SignUp = () => {
 		password: "",
 		confirmPassword: "",
 		gender: "",
+		interest1: "",
+		interest2:"",
 	});
 
 	const { loading, signup } = useSignup();
@@ -84,6 +86,30 @@ const SignUp = () => {
 					</div>
 
 					<GenderCheckbox onCheckboxChange={handleCheckboxChange} selectedGender={inputs.gender} />
+					<div>
+						<label className='label'>
+							<span className='text-base label-text'>Interests: 1</span>
+						</label>
+						<input
+							type='text'
+							placeholder='Enter Your interests'
+							className='w-full input input-bordered h-10'
+							value={inputs.interest1}
+							onChange={(e) => setInputs({ ...inputs, interest1: e.target.value })}
+						/>
+					</div>
+					<div>
+						<label className='label'>
+							<span className='text-base label-text'>Interests: 2</span>
+						</label>
+						<input
+							type='text'
+							placeholder='Enter Your interests'
+							className='w-full input input-bordered h-10'
+							value={inputs.interest2}
+							onChange={(e) => setInputs({ ...inputs, interest2: e.target.value })}
+						/>
+					</div>
 
 					<Link
 						to={"/login"}
