@@ -9,6 +9,7 @@ const useLogin = () => {
 	const login = async (username, password) => {
 		const success = handleInputErrors(username, password);
 		if (!success) return;
+
 		setLoading(true);
 		try {
 			const res = await fetch("/api/auth/login", {
@@ -22,7 +23,9 @@ const useLogin = () => {
 				throw new Error(data.error);
 			}
 
+			// Store user data in local storage
 			localStorage.setItem("chat-user", JSON.stringify(data));
+			// Update auth user context
 			setAuthUser(data);
 		} catch (error) {
 			toast.error(error.message);
