@@ -1,0 +1,19 @@
+# Docker build context ignore
+node_modules
+frontend/node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store
+
+# Frontend build cache/output
+frontend/dist
+
+# Local env and VCS
+.env
+.git
+.gitignore
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
